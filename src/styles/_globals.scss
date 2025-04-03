@@ -30,3 +30,12 @@ button {
     cursor: pointer;
 }
 
+.button-primary {
+    padding: 6px 4px;
+    text-transform: uppercase;
+    background-color: $bg-mint;
+    color: $text-mint;
+    border: 1px solid $bg-mint;
+    font-weight: bold;
+}
+
