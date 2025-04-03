@@ -1,5 +1,21 @@
 @import "./main";
 
+@font-face {
+    font-family: "BariolBold";
+    src: url("../fonts/bariol_bold-webfont.woff2");
+    font-weight: bold;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "BurbankBigCondensed";
+    src: url("../fonts/burbankbigcondensed-bold-2.woff2");
+    font-weight: bold;
+    font-display: swap;
+    font-style: normal;
+}
+
 :root {
     background-color: $bg-mint;
     color: $text-mint;
@@ -15,6 +31,7 @@ html, body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-family: "BariolBold", sans-serif;
 }
 
 a {
@@ -37,5 +54,6 @@ button {
     color: $text-mint;
     border: 1px solid $bg-mint;
     font-weight: bold;
+    font-family: "BurbankBigCondensed", sans-serif;
 }
 
