@@ -1,0 +1,18 @@
+@import "../../../../styles/main";
+
+.header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: $primary-dark-blue;
+    color: white;
+    height: 60px;
+
+    .header-logo-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 10px;
+    }
+    
+}
+
