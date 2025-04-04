@@ -1,13 +1,10 @@
 import { createPayload } from "../graphql/create-payload";
-import { ApiResponse, Product, SearchData } from "../definitions";
+import { ApiResponse, SearchData } from "../definitions";
 import { print } from "graphql";
 
-export const fetchAllProducts = async (
-  searchTerm: string = ""
-): Promise<SearchData> => {
+export const fetchProducts = async (): Promise<SearchData> => {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL as string;
   const payload = createPayload();
-  console.log("searchTerm in fetchAllProducts:", searchTerm);
 
   const stringifiedPayload = {
     ...payload,
@@ -31,14 +28,7 @@ export const fetchAllProducts = async (
 
     const data: ApiResponse = await response.json();
     console.log("Search data:", data.data.search);
-
-    const searchedProducts = data.data.search.items.filter((product: Product) =>
-      product.productName.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
-    //return data.data.search;
-    console.log("searched products:", searchedProducts);
-    return { ...data.data.search, items: searchedProducts };
+    return data.data.search;
   } catch (error) {
     console.error("Error fetching data:", error);
     throw error;
