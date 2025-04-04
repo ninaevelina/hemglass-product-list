@@ -38,7 +38,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <p>{product.priceWithTax.max} kr</p>
         </div>
         <div className="product-card__button-container">
-          <button>Lägg till i varukorgen</button>
+          <button className="button-primary">Lägg till i varukorgen</button>
         </div>
       </article>
     </li>

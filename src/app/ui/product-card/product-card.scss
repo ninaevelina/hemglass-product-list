@@ -4,7 +4,7 @@
     height: 100%;
     width: 100%;
     background-color: white;
-    border-radius: 8px;
+    font-weight: bold;
 
     .product-card {
         height: 100%;
@@ -14,13 +14,10 @@
             height: 360px;
             padding: 40px 0px;
             position: relative;
-            background-color: lightblue;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
         }
 
         &__details {
-            padding: 10px 0px;
+            padding: 10px 8px;
             display: flex;
             flex-direction: column;
             gap: 4px;
@@ -28,6 +25,7 @@
 
         &__button-container {
             display: flex;
+            padding: 10px 8px;
         }
     }
 }

@@ -2,7 +2,12 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-export default function Search({ placeholder }: { placeholder: string }) {
+interface SearchProps {
+  placeholder: string;
+  onSearch?: (searchTerm: string) => void;
+}
+
+export default function Search({ placeholder, onSearch }: SearchProps) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -15,6 +20,10 @@ export default function Search({ placeholder }: { placeholder: string }) {
       params.delete("query");
     }
     replace(`${pathname}?${params.toString()}`);
+
+    if (onSearch) {
+      onSearch(searchTerm);
+    }
   };
 
   return (
