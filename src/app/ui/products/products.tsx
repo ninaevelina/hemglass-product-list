@@ -2,9 +2,10 @@ import Image from "next/image";
 import "./products.scss";
 import { fetchAllProducts } from "@/app/lib/services/fetch-all-products";
 
-export default async function Products() {
-  const data = await fetchAllProducts();
+export default async function Products({ searchTerm }: { searchTerm: string }) {
+  const data = await fetchAllProducts(searchTerm);
   const products = data.items;
+  console.log("searchTerm in products-component:", searchTerm);
 
   return (
     <section>
