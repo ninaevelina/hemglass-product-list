@@ -1,0 +1,28 @@
+@import "../../../styles/main";
+
+.filter-buttons-container {
+    display: flex;
+    justify-content: space-between;
+
+    &__filter-button-active {
+        padding: 6px;
+        text-transform: uppercase;
+        background-color: $primary-dark-blue;
+        border: 1px solid $primary-dark-blue;
+        color: $white;
+        font-weight: bold;
+        font-family: "BurbankBigCondensed", sans-serif;
+        transition: 0.5s;
+        outline: 0;
+    }
+    
+    &__filter-button-inactive {
+        padding: 6px;
+        text-transform: uppercase;
+        background-color: $white;
+        color: $primary-dark-blue;
+        outline: 0;
+        border: 1px solid $primary-dark-blue;
+        font-family: "BurbankBigCondensed", sans-serif;
+    }
+}
