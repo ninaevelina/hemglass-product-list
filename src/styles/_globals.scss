@@ -45,6 +45,7 @@ ul {
 
 button {
     cursor: pointer;
+    font-size: 1rem;
 }
 
 .button-primary {
@@ -55,5 +56,28 @@ button {
     border: 1px solid $bg-mint;
     font-weight: bold;
     font-family: "BurbankBigCondensed", sans-serif;
+    transition: 0.5s;
+    outline: 0;
+}
+
+.button-primary:hover, .button-primary:focus, .button-primary:active {
+    background-color: $primary-dark-blue;
+    color: white;
+    transition: color 0.3s background-color 0.3s;
+    outline: 0;
+    border: 1px solid $primary-dark-blue;
+}
+
+input[type=search]::-ms-clear, input[type=search]::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
 }
 
