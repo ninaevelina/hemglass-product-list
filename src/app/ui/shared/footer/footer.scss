@@ -1,0 +1,17 @@
+@import "../../../../styles/main";
+
+.footer {
+    display: flex;
+    flex-direction: column;
+
+    &__column-top {
+        background-color: $primary-light-blue;
+        height: 100px;
+    }
+
+    &__column-bottom {
+        background-color: $primary-dark-blue;
+        height: 100px;
+
+    }
+}
