@@ -21,6 +21,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               ? `url(${product.backgroundImgCard.source})`
               : "none",
             backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         >
           <Image
@@ -39,7 +40,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="product-card__details">
           <p>{product.productName}</p>
           <p>{product.customProductVariantMappings.packageSize} st</p>
-          <p>{product.priceWithTax.max} kr</p>
+          <p>{product.priceWithTax.max / 100} kr</p>
         </div>
         <div className="product-card__button-container">
           <Button

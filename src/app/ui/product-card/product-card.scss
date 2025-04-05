@@ -5,6 +5,8 @@
     width: 100%;
     background-color: white;
     font-weight: bold;
+    outline: 1px solid $primary-dark-blue;
+    z-index: 100;
 
     .product-card {
         height: 100%;
