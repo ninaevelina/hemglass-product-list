@@ -36,6 +36,8 @@ export default function Search({ placeholder, onSearch }: SearchProps) {
         Sök
       </label>
       <input
+        id="search"
+        aria-label={placeholder}
         placeholder={placeholder}
         onChange={(e) => handleSearch(e.target.value)}
         defaultValue={searchParams.get("query")?.toString()}
