@@ -11,16 +11,21 @@ import { useDebounce } from "@/app/lib/hooks/use-debounce";
 export default function ProductListing() {
   const [products, setProducts] = useState<Product[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true);
         const products = await fetchProducts();
         setProducts(products.items);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching products:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchData();
@@ -38,6 +43,7 @@ export default function ProductListing() {
         placeholder="Sök"
         onSearch={(searchTerm) => setSearchQuery(searchTerm)}
       />
+      {isLoading && <div>Hämtar produkter...</div>}
       {filteredProducts.length === 0 && searchQuery.length > 0 ? (
         <div>
           <h2>Hoppsan!</h2>
