@@ -3,15 +3,9 @@
 .footer {
     display: flex;
     flex-direction: column;
+    background-color: $primary-dark-blue;
 
-    &__column-top {
-        background-color: $primary-light-blue;
+    &__column-top, &__column-bottom {
         height: 100px;
-    }
-
-    &__column-bottom {
-        background-color: $primary-dark-blue;
-        height: 100px;
-
     }
 }
