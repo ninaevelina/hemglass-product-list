@@ -20,7 +20,7 @@
         color: $primary-dark-blue;
         text-transform: uppercase;
         @include media-breakpoint(screen-md) {
-            color: white;
+            color: $white;
         }
 
         .active {

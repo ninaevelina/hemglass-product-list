@@ -52,7 +52,7 @@ button {
     padding: 6px;
     text-transform: uppercase;
     background-color: $primary-dark-blue;
-    color: white;
+    color: $white;
     border: 1px solid $primary-dark-blue;
     font-weight: bold;
     font-family: "BurbankBigCondensed", sans-serif;
@@ -61,7 +61,7 @@ button {
 }
 
 .button-primary:hover, .button-primary:focus, .button-primary:active {
-    background-color: white;
+    background-color: $white;
     color: $primary-dark-blue;
     transition: color 0.3s background-color 0.3s;
     outline: 0;
