@@ -31,7 +31,7 @@ export default function ProductListing() {
     fetchData();
   }, []);
 
-  const filteredProducts = products.filter((product) =>
+  const searchedProducts = products.filter((product) =>
     product.productName
       .toLowerCase()
       .includes(debouncedSearchQuery.toLowerCase())
@@ -44,14 +44,14 @@ export default function ProductListing() {
         onSearch={(searchTerm) => setSearchQuery(searchTerm)}
       />
       {isLoading && <div>Hämtar produkter...</div>}
-      {filteredProducts.length === 0 && searchQuery.length > 0 ? (
+      {searchedProducts.length === 0 && searchQuery.length > 0 ? (
         <div>
           <h2>Hoppsan!</h2>
           <p>Inga matchande sökresultat för &quot;{searchQuery}&quot;</p>
         </div>
       ) : (
         <ul className="product-list">
-          {filteredProducts.map((product) => (
+          {searchedProducts.map((product) => (
             <ProductCard key={product.productId} product={product} />
           ))}
         </ul>
