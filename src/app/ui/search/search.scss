@@ -1,0 +1,49 @@
+@import "../../../styles/main";
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    @include media-breakpoint(screen-md) {
+        justify-content: flex-start;
+    }
+
+    &__label-visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0)
+    }
+
+    &__input {
+        border: none;
+        outline: none;
+        width: 100%;
+        font-family: "BariolBold", sans-serif;
+        color: $primary-dark-blue;
+        background-image: url("../../../../public/magnifying-glass-icon.svg");
+        background-position: 0% 50%;
+        background-repeat: no-repeat;
+        background-size: 1.5rem;
+        padding-left: 2rem;
+        font-size: 1rem;
+        @include media-breakpoint(screen-md) {
+            width: 50%;
+        }
+        @include media-breakpoint(screen-lg) {
+            width: 33.33%;
+        }
+        @include media-breakpoint(screen-xl) {
+            width: 25%;
+        }
+
+    }
+
+    &__input::placeholder {
+        color: $primary-dark-blue;
+        font-family: "BariolBold", sans-serif;
+    }
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import "./search.scss";
 
 interface SearchProps {
   placeholder: string;
@@ -27,8 +28,11 @@ export default function Search({ placeholder, onSearch }: SearchProps) {
   };
 
   return (
-    <div>
-      <label htmlFor="search" className="sr-only">
+    <div className="search-container">
+      <label
+        htmlFor="search"
+        className="search-container__label-visually-hidden"
+      >
         Sök
       </label>
       <input
@@ -36,6 +40,7 @@ export default function Search({ placeholder, onSearch }: SearchProps) {
         onChange={(e) => handleSearch(e.target.value)}
         defaultValue={searchParams.get("query")?.toString()}
         type="search"
+        className="search-container__input"
       />
     </div>
   );
