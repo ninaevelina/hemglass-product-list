@@ -1,12 +1,16 @@
 import { Product } from "@/app/lib/definitions";
 import Image from "next/image";
 import "./product-card.scss";
+import Button from "../shared/button/button";
 
 interface ProductCardProps {
   product: Product;
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const handleAddToCart = () => {
+    console.log("Added to cart:", product.productName);
+  };
   return (
     <li className="list-item">
       <article className="product-card">
@@ -38,7 +42,11 @@ export default function ProductCard({ product }: ProductCardProps) {
           <p>{product.priceWithTax.max} kr</p>
         </div>
         <div className="product-card__button-container">
-          <button className="button-primary">Lägg till i varukorgen</button>
+          <Button
+            label="Lägg till i varukorgen"
+            onClick={handleAddToCart}
+            className="button-primary"
+          />
         </div>
       </article>
     </li>
