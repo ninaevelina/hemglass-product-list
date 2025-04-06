@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import "./search.scss";
 
 interface SearchProps {
   placeholder: string;
@@ -26,16 +27,24 @@ export default function Search({ placeholder, onSearch }: SearchProps) {
     }
   };
 
+  // TODO: Add fix for search input and params not being cleared on page reload if input hasn't been cleared before reload
+
   return (
-    <div>
-      <label htmlFor="search" className="sr-only">
+    <div className="search-container">
+      <label
+        htmlFor="search"
+        className="search-container__label-visually-hidden"
+      >
         Sök
       </label>
       <input
+        id="search"
+        aria-label={placeholder}
         placeholder={placeholder}
         onChange={(e) => handleSearch(e.target.value)}
         defaultValue={searchParams.get("query")?.toString()}
         type="search"
+        className="search-container__input"
       />
     </div>
   );

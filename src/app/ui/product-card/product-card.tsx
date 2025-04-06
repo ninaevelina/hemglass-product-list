@@ -1,12 +1,17 @@
 import { Product } from "@/app/lib/definitions";
 import Image from "next/image";
 import "./product-card.scss";
+import Button from "../shared/button/button";
+import Link from "next/link";
 
 interface ProductCardProps {
   product: Product;
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const handleAddToCart = () => {
+    console.log("Added to cart:", product.productName);
+  };
   return (
     <li className="list-item">
       <article className="product-card">
@@ -17,8 +22,10 @@ export default function ProductCard({ product }: ProductCardProps) {
               ? `url(${product.backgroundImgCard.source})`
               : "none",
             backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         >
+          {/* TODO: Add fallback image */}
           <Image
             src={product.productImg.source}
             alt={product.productName}
@@ -33,12 +40,16 @@ export default function ProductCard({ product }: ProductCardProps) {
           />
         </div>
         <div className="product-card__details">
-          <p>{product.productName}</p>
+          <Link href={`/produkter/${product.slug}`}>{product.productName}</Link>
           <p>{product.customProductVariantMappings.packageSize} st</p>
-          <p>{product.priceWithTax.max} kr</p>
+          <p>{product.priceWithTax.max / 100} kr</p>
         </div>
         <div className="product-card__button-container">
-          <button className="button-primary">Lägg till i varukorgen</button>
+          <Button
+            label="Lägg till i varukorgen"
+            onClick={handleAddToCart}
+            className="button-primary"
+          />
         </div>
       </article>
     </li>

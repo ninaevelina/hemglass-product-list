@@ -1,0 +1,15 @@
+@import "../../../../styles/main";
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    background-color: $primary-dark-blue;
+    color: $white;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px;
+
+    &__column-top, &__column-bottom {
+        height: 100px;
+    }
+}

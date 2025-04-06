@@ -1,0 +1,44 @@
+@import "../../../styles/main";
+
+.filter-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 0px;
+    @include media-breakpoint(screen-md) {
+        height: 100%;
+        padding: 0;
+    }
+
+    // TODO: Create mixin for button styles
+
+    &__filter-button-active {
+        padding: 6px;
+        text-transform: uppercase;
+        background-color: $primary-dark-blue;
+        border: 1px solid $primary-dark-blue;
+        color: $white;
+        font-weight: bold;
+        font-family: "BurbankBigCondensed", sans-serif;
+        transition: 0.5s;
+        outline: 0;
+        @include media-breakpoint(screen-lg) {
+            padding: 6px 12px;
+        }
+    }
+    
+    &__filter-button-inactive {
+        padding: 6px;
+        text-transform: uppercase;
+        background-color: $white;
+        color: $primary-dark-blue;
+        outline: 0;
+        border: 1px solid $primary-dark-blue;
+        font-family: "BurbankBigCondensed", sans-serif;
+        @include media-breakpoint(screen-lg) {
+            padding: 6px 12px;
+        }
+    }
+}
+
+//TODO: Add hover states to buttons and refactor repetitive styles

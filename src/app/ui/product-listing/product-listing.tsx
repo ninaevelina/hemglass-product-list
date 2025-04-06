@@ -7,45 +7,73 @@ import ProductCard from "../product-card/product-card";
 import "./product-listing.scss";
 import Search from "../search/search";
 import { useDebounce } from "@/app/lib/hooks/use-debounce";
+import Filter from "../filter/filter";
 
 export default function ProductListing() {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [productLists, setProductLists] = useState<{
+    products: Product[];
+    filteredProducts: Product[];
+  }>({
+    products: [],
+    filteredProducts: [],
+  });
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true);
         const products = await fetchProducts();
-        setProducts(products.items);
+        setProductLists({
+          products: products.items,
+          filteredProducts: products.items,
+        });
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching products:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchData();
   }, []);
 
-  const filteredProducts = products.filter((product) =>
+  const searchedProducts = productLists.filteredProducts.filter((product) =>
     product.productName
       .toLowerCase()
       .includes(debouncedSearchQuery.toLowerCase())
   );
 
+  // TODO: Implement pagination
+
   return (
     <section>
-      <Search
-        placeholder="Sök"
-        onSearch={(searchTerm) => setSearchQuery(searchTerm)}
-      />
-      {filteredProducts.length === 0 && searchQuery.length > 0 ? (
+      <div className="grid-1col-2col">
+        <Search
+          placeholder="Sök"
+          onSearch={(searchTerm) => setSearchQuery(searchTerm)}
+        />
+        <Filter
+          products={productLists.products}
+          onCategoryChange={(filteredProducts) =>
+            setProductLists((prev) => ({ ...prev, filteredProducts }))
+          }
+        />
+      </div>
+      {/* TODO: Add styling for the loading component */}
+      {isLoading && <div>Hämtar produkter...</div>}
+      {/*TODO: Add styles for the "no results"-container down below */}
+      {searchedProducts.length === 0 && searchQuery.length > 0 ? (
         <div>
           <h2>Hoppsan!</h2>
           <p>Inga matchande sökresultat för &quot;{searchQuery}&quot;</p>
         </div>
       ) : (
         <ul className="product-list">
-          {filteredProducts.map((product) => (
+          {searchedProducts.map((product) => (
             <ProductCard key={product.productId} product={product} />
           ))}
         </ul>
