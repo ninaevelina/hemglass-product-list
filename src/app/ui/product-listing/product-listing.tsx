@@ -49,7 +49,7 @@ export default function ProductListing() {
 
   return (
     <section>
-      <div>
+      <div className="grid-1col-2col">
         <Search
           placeholder="Sök"
           onSearch={(searchTerm) => setSearchQuery(searchTerm)}

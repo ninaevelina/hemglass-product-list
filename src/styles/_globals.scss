@@ -81,3 +81,13 @@ input[type="search"]::-webkit-search-results-decoration {
     display: none;
 }
 
+.grid-1col-2col {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    @include media-breakpoint(screen-md) {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 10px;
+    }
+}
+

@@ -8,6 +8,7 @@
     @include media-breakpoint(screen-md) {
         justify-content: flex-start;
         margin: 10px;
+        height: 100%;
     }
 
     &__label-visually-hidden {
@@ -33,15 +34,8 @@
         padding-left: 2.5rem;
         font-size: 1rem;
         @include media-breakpoint(screen-md) {
-            width: calc(50% - 10px);
+            width: calc(100% - 10px);
         }
-        @include media-breakpoint(screen-lg) {
-            width: calc(33.33% - 10px);
-        }
-        @include media-breakpoint(screen-xl) {
-            width: calc(25% - 10px);
-        }
-
     }
 
     &__input::placeholder {
