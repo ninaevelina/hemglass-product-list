@@ -27,10 +27,11 @@ export const fetchProducts = async (): Promise<SearchData> => {
     }
 
     const data: ApiResponse = await response.json();
-    console.log("Search data:", data.data.search);
     return data.data.search;
   } catch (error) {
     console.error("Error fetching data:", error);
     throw error;
   }
 };
+
+// TODO: update params to include take and skip to enable pagination

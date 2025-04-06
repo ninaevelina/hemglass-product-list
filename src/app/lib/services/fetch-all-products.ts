@@ -2,6 +2,9 @@ import { createPayload } from "../graphql/create-payload";
 import { ApiResponse, Product, SearchData } from "../definitions";
 import { print } from "graphql";
 
+// This function is not used the current implementation but is kept for future reference.
+// It fetches all products and filters them based on the provided search term.
+
 export const fetchAllProducts = async (
   searchTerm: string = ""
 ): Promise<SearchData> => {
@@ -36,7 +39,6 @@ export const fetchAllProducts = async (
       product.productName.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    //return data.data.search;
     console.log("searched products:", searchedProducts);
     return { ...data.data.search, items: searchedProducts };
   } catch (error) {

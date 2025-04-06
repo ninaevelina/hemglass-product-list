@@ -47,6 +47,8 @@ export default function ProductListing() {
       .includes(debouncedSearchQuery.toLowerCase())
   );
 
+  // TODO: Implement pagination
+
   return (
     <section>
       <div className="grid-1col-2col">
@@ -61,7 +63,9 @@ export default function ProductListing() {
           }
         />
       </div>
+      {/* TODO: Add styling for the loading component */}
       {isLoading && <div>Hämtar produkter...</div>}
+      {/*TODO: Add styles for the "no results"-container down below */}
       {searchedProducts.length === 0 && searchQuery.length > 0 ? (
         <div>
           <h2>Hoppsan!</h2>

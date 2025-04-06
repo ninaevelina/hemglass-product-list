@@ -27,6 +27,8 @@ export default function Search({ placeholder, onSearch }: SearchProps) {
     }
   };
 
+  // TODO: Add fix for search input and params not being cleared on page reload if input hasn't been cleared before reload
+
   return (
     <div className="search-container">
       <label

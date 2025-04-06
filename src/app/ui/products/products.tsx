@@ -2,6 +2,9 @@ import Image from "next/image";
 import "./products.scss";
 import { fetchAllProducts } from "@/app/lib/services/fetch-all-products";
 
+// Unused server component that initially fetched all products and was implemented in route "/produkter".
+// This component is not used in the current implementation but is kept for reference.
+
 export default async function Products({ searchTerm }: { searchTerm: string }) {
   const data = await fetchAllProducts(searchTerm);
   const products = data.items;

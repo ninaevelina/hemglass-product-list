@@ -20,3 +20,5 @@ export const createPayload = (): Payload => {
     operationName: "search",
   };
 };
+
+// TODO: update params to include take and skip to enable pagination
